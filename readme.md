@@ -1,6 +1,6 @@
-# WebGPU AssemblyScript Hello Triangle
+# WebGPU Hello Triangle
 
-This is a project to implement hello triangle rendering using AssemblyScript and WebGPU
+This is a project to implement hello triangle rendering with WebGPU
 
 ## Getting Started
 
@@ -16,7 +16,6 @@ This is a project to implement hello triangle rendering using AssemblyScript and
 - run development environment - `npm run dev`
 
 ## Built With
-- [AssemblyScript](https://github.com/AssemblyScript/assemblyscript)
 - [gl-matrix](http://glmatrix.net/) - Vector math
 
 ## License
