@@ -4,7 +4,6 @@ import copy from 'rollup-plugin-copy';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 
-// noinspection JSUnusedGlobalSymbols
 export default {
     input: 'src/index.ts',
     preserveModules: true,
