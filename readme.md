@@ -2,6 +2,8 @@
 
 This is a project to implement hello triangle rendering with WebGPU
 
+## [Demo](https://caboyd.github.io/webgpu-hello-triangle/build/index.html)
+
 ## Getting Started
 
 ### Prerequisites

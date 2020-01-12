@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "declaration": false,
+    "baseUrl": "./",
+    "paths":{
+    },
+    "outDir": "build",
+    "strict": true,
+    "noImplicitReturns": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization" : true
+  },
+  "typedef":[
+    true,
+    "call-signature",
+    "property-declaration"
+  ],
+  "include": ["./src/**/*"],
+  "exclude": [
+    "node_modules"
+  ]
+
+}
