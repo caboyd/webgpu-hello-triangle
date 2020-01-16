@@ -1,3 +1,8 @@
+import vert from './basic.vert';
+
+const spir_v: Uint32Array = vert;
+console.log(spir_v.length);
+
 const setup_canvas = (): HTMLCanvasElement => {
     const canvas = document.createElement('canvas');
     canvas.width = window.innerWidth;
@@ -7,11 +12,23 @@ const setup_canvas = (): HTMLCanvasElement => {
     return canvas;
 };
 
-const canvas = setup_canvas();
-
-const canvas_resize = (): void => {
+const canvas_resize = (canvas: HTMLCanvasElement): void => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 };
 
-window.addEventListener('resize', canvas_resize, false);
+(async (): Promise<void> => {
+    const canvas = setup_canvas();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const context: GPUCanvasContext = canvas.getContext('gpupresent') as any;
+    console.log(context);
+    console.log(navigator.gpu);
+
+    window.addEventListener(
+        'resize',
+        () => {
+            canvas_resize(canvas);
+        },
+        false,
+    );
+})();

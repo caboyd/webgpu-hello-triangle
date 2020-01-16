@@ -21,9 +21,9 @@
     "call-signature",
     "property-declaration"
   ],
-  "include": ["./src/**/*"],
-  "exclude": [
-    "node_modules"
+  "include": [
+    "./src/**/*",
+    "node_modules/@webgpu/types/dist/index.d.ts",
+    "node_modules/@webgpu/glslang/dist/web-devel/glslang.d.ts"
   ]
-
 }
