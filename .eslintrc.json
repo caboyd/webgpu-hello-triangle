@@ -21,7 +21,6 @@
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/no-inferrable-types": "off",
     "@typescript-eslint/explicit-function-return-type": ["error"],
-    "@typescript-eslint/no-magic-numbers": ["error", { "ignoreEnums": true, "ignoreNumericLiteralTypes": true, "ignoreArrayIndexes": true }],
     "@typescript-eslint/prefer-for-of" : ["error"],
     "@typescript-eslint/no-namespace" : "off",
     "@typescript-eslint/explicit-member-accessibility": ["error"]

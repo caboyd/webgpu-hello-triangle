@@ -4,30 +4,30 @@ import copy from 'rollup-plugin-copy';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 const glslang = require('@webgpu/glslang/dist/node-devel/glslang')();
-import glsl from 'rollup-plugin-glsl';
 
 function inline_glslang() {
     return {
         name: 'inline_glslang',
 
         transform(source, id) {
-            if (/\.(vert|vs)$/.test(id)) {
-                const glsl = glslang.compileGLSL(source, 'vertex');
-                const buffer = Buffer.from(glsl.buffer);
-                const src = buffer.toString('base64');
-                const result = `export default new Uint32Array( new Uint8Array(  atob("${src}").split("").map(m => m.charCodeAt(0))).buffer)`;
-                return result;
-            }
-            return null;
+            const shader_stage = /\.(vert|vs)$/.test(id)
+                ? 'vertex'
+                : /\.(frag|fs)$/.test(id)
+                ? 'fragment'
+                : /\.(comp)$/.test(id)
+                ? 'compute'
+                : undefined;
+            if (shader_stage === undefined) return;
+            const byte_code = glslang.compileGLSL(source, shader_stage);
+           // console.log(byte_code);
+            const buffer = Buffer.from(byte_code.buffer);
+            //console.log(buffer)
+            const base64 = buffer.toString('base64');
+           // console.log(base64);
+            const result = `export default new Uint32Array( new Uint8Array(  atob("${base64}").split("").map(m => m.charCodeAt(0))).buffer)`;
+            return result;
         },
     };
-}
-
-function copy_compile_glsland(){
-    return {
-        name: 'compy_compile_glslang',
-
-    }
 }
 
 export default {
@@ -38,6 +38,7 @@ export default {
         format: 'esm',
     },
     extensions: ['.ts, .frag, .vert'],
+    external: ['@webgpu/types/dist/index'],
 
     plugins: [
         inline_glslang(),
