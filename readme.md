@@ -17,8 +17,5 @@ This is a project to implement hello triangle rendering with WebGPU
 - install node modules - `npm i`   
 - run development environment - `npm run dev`
 
-## Built With
-- [gl-matrix](http://glmatrix.net/) - Vector math
-
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
